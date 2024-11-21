@@ -1,0 +1,4 @@
+.idea
+dist
+build
+cli-tool.spec
