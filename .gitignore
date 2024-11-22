@@ -1,5 +1,6 @@
 .idea
 dist
 build
-cli-tool.spec
+*.spec
+.DS_Store
 __pycache__
