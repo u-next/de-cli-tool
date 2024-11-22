@@ -19,4 +19,6 @@ def show_external_ip(env):
         run_shell(
             f"gcloud container clusters get-credentials {cluster_name} --zone asia-northeast1-a --project un-de-sawmill"
         )
-        run_shell("kubectl get svc -A -o json | jq -r '[\"Namespace\", \"Name\", \"ExternalIP\", \"Ports\"], (.items[] | select(.spec.type==\"LoadBalancer\") | [.metadata.namespace, .metadata.name, (.status.loadBalancer.ingress[0].ip // \"None\"), (.spec.ports | map(.name + \":\" + (.port | tostring)) | join(\", \"))]) | @tsv' | column -t")
+        run_shell(
+            'kubectl get svc -A -o json | jq -r \'["Namespace", "Name", "ExternalIP", "Ports"], (.items[] | select(.spec.type=="LoadBalancer") | [.metadata.namespace, .metadata.name, (.status.loadBalancer.ingress[0].ip // "None"), (.spec.ports | map(.name + ":" + (.port | tostring)) | join(", "))]) | @tsv\' | column -t'
+        )

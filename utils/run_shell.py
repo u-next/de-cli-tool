@@ -13,4 +13,4 @@ def run_shell(command):
 
 
 if __name__ == "__main__":
-    run_shell("echo \"Hello, world!\"")
+    run_shell('echo "Hello, world!"')
