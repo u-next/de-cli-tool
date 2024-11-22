@@ -1,12 +1,13 @@
 import click
+from utils.run_shell import run_shell
 
 
 @click.command()
 @click.argument("name")
 def hello(name="world"):
     """
-    Description: Say hello to someone \n
-    Usage: hello <NAME: str> \n
-    Default: Hello, world! \n
+    Say hello to the user, default is 'world' \n
+    Example: \n
+        hello John
     """
-    click.echo(f"Hello, {name}!")
+    run_shell(f"echo Hello, {name}!")
