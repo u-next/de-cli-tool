@@ -2,6 +2,7 @@
 
 ## Prequsites
 - Python 3.10 or higher
+  - Python 3.12 now having some issues with `pyinstaller` package, so it's better to use Python 3.10 or 3.11
 - `pip install -r requirements.txt`
 
 ## Package Compilation
