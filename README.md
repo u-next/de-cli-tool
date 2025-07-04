@@ -1,18 +1,43 @@
-# DE-CLI-Tool: A Python-based CLI tool, for U-NEXT DE members
+# DE-CLI-Tool
 
-## Prequsites
-- Python 3.10 or higher
-  - Python 3.12 now having some issues with `pyinstaller` package, so it's better to use Python 3.10 or 3.11
-- `pip install -r requirements.txt`
+A Python-based CLI tool designed for U-NEXT DE (Data Engineering) team members.
 
-## Package Compilation
-- `pyinstaller --onefile --clean --name de-cli-tool main.py`
-- Release the compiled package in the `dist` directory to the GitHub release page: https://github.com/u-next/de-cli-tool/releases
-- Update the `brew` formula with the new version and SHA256 hash: https://github.com/u-next/homebrew-de-tools/blob/main/de-cli-tool.rb
-  - The SHA256 hash can be obtained by running `shasum -a 256 dist/de-cli-tool`
+## Prerequisites
 
-## Installation/Update
-```
+- **Python 3.10 or 3.11** (required)
+  - Python 3.12 currently has compatibility issues with the `pyinstaller` package
+- **Dependencies**: Install required packages with:
+
+  ```bash
+  pip install -r requirements.txt
+  ```
+
+## Development
+
+### Building the Package
+
+1. **Compile the application**:
+
+   ```bash
+   pyinstaller --onefile --clean --name de-cli-tool main.py
+   ```
+
+2. **Release process**:
+   - Upload the compiled package from the `dist/` directory to the [GitHub releases page](https://github.com/u-next/de-cli-tool/releases)
+   - Update the Homebrew formula with the new version and SHA256 hash: [de-cli-tool.rb](https://github.com/u-next/homebrew-de-tools/blob/main/de-cli-tool.rb)
+   - Generate SHA256 hash with: `shasum -a 256 dist/de-cli-tool`
+
+## Installation
+
+### Using Homebrew (Recommended)
+
+```bash
 brew tap u-next/de-tools
 brew install de-cli-tool
+```
+
+### Updating
+
+```bash
+brew upgrade de-cli-tool
 ```
